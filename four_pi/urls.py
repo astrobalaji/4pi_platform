@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from homepage import views as home_v
+from accounts import views as register_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_v.index),
-    path('', include('django.contrib.auth.urls'))
+    path('', include('django.contrib.auth.urls')),
+    path('register/', register_v.SignUp.as_view())
 ]
